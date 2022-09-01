@@ -38,8 +38,8 @@ function init_webar(){
     threeAvatarModel: _threeModel,
     threeFaceMeshName: "robotFace",
 
-    faceScale: 60.0,
-    faceOffset: [0, 87, 22], // +Y -> up, +Z -> forward
+    faceScale: 65.0,
+    faceOffset: [0, 90, 15], // +Y -> up, +Z -> forward
     faceRx: -10 * Math.PI/180, // - -> look up
 
     neckBoneName: 'headx_0117',

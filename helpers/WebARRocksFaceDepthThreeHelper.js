@@ -10,8 +10,8 @@ const _defaultSpec = {
   // neural network models:
   //NNTrackPath: '../../../../../../neuralNets/raw/faceDepth/faceDepthTrack0_2022-08-14_tmp.json',
   //NNDepthPath: '../../../../../../neuralNets/raw/faceDepth/faceDepth0_2022-08-21_5_1_tmp.json',
-  NNTrackPath: NNPath + 'NN_FACEDEPTH_TRACK_0.json',
-  NNDepthPath: NNPath + 'NN_FACEDEPTH_DEPTH_0.json',
+  NNTrackPath: NNPath + 'NN_FACEDEPTH_TRACK_1.json',
+  NNDepthPath: NNPath + 'NN_FACEDEPTH_DEPTH_1.json',
 
   // face insertion:
   threeAvatarModel: null,
