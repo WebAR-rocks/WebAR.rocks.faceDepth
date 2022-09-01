@@ -6,6 +6,8 @@ const _defaultSpec = {
   // rendering:
   depthScale: 0.4,
   maskTexturePath: 'faceMask.png',
+  depthLightFallOffRange: [-1, 0.5], // first value: depth when light falloff is max, second: stop light falloff
+  depthLightFallOffIntensity: 0.8, // 1 -> full effect, 0 -> no effect
 
   // neural network models:
   //NNTrackPath: '../../../../../../neuralNets/raw/faceDepth/faceDepthTrack0_2022-08-14_tmp.json',
@@ -38,7 +40,8 @@ import {
   ShaderMaterial,
   Skeleton,
   SkinnedMesh,
-  TextureLoader
+  TextureLoader,
+  Vector2
   } from '../libs/three/v136/build/three.module.js';
 
 let _spec = null;
@@ -55,6 +58,8 @@ let _threeFaceMeshToReplace = null;
 
 const _RGBDVertexShaderSource = `
   varying vec2 vUv;
+  varying float vDepth;
+
   uniform float depthScale, res;
   uniform sampler2D tRGBD;
 
@@ -73,16 +78,25 @@ const _RGBDVertexShaderSource = `
 
     // output:
     vUv = uv;
+    vDepth = depth;
     gl_Position = projectionMatrix * modelViewMatrix * vec4(transformed, 1.0);
   }`;
 
 const _RGBDFragmentShaderSource = `
   varying vec2 vUv;
+  varying float vDepth;
   uniform sampler2D tRGBD, tMask;
+  uniform vec2 depthLightFallOffRange;
+  uniform float depthLightFallOffIntensity;
 
   void main() {
+    float lightFallOff = smoothstep(depthLightFallOffRange.y, depthLightFallOffRange.x, vDepth);
+    lightFallOff *= depthLightFallOffIntensity;
+    float lightFallOffFactor = 1.0 - lightFallOff;
+
     float mask = texture2D(tMask, vUv).r;
-    vec3 color = texture2D(tRGBD, vUv).rgb;
+    vec3 color = lightFallOffFactor * texture2D(tRGBD, vUv).rgb;
+    
     gl_FragColor = vec4(color, mask);
   }
 `;
@@ -313,6 +327,8 @@ function create_threeGridMesh(res, threeRGBDTexture, maskTexturePath){
     uniforms: {
       depthScale: { value: _spec.depthScale },
       res: {value: res},
+      depthLightFallOffRange: { value: new Vector2().fromArray(_spec.depthLightFallOffRange) },
+      depthLightFallOffIntensity: { value: _spec.depthLightFallOffIntensity },
       tRGBD: { value: threeRGBDTexture },
       tMask: { value: threeMaskTexture }
     },

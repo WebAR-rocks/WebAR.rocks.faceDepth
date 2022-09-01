@@ -34,7 +34,7 @@ function init_webar(){
     displayVideoRes: 512,
     depthScale: 0.4,
 
-    maskTexturePath: 'faceMask.png',
+    maskTexturePath: 'faceMask2.png',
     threeAvatarModel: _threeModel,
     threeFaceMeshName: "robotFace",
 
