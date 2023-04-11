@@ -13,6 +13,9 @@ let _threeAnimationMixer = null, _threeClock = null, _threeModel = null;
 // entry point:
 function main(){
   init_three().then(init_webar).then(function(){
+    render();
+    WebARRocksFaceDepthThreeHelper.insert_face();
+
     hide_domLoading();
     animate();
   });
@@ -42,10 +45,7 @@ function init_webar(){
     faceOffset: [0, 90, 15], // +Y -> up, +Z -> forward
     faceRx: -10 * Math.PI/180, // - -> look up
 
-    neckBoneName: 'headx_0117',
-    onFaceMeshReady: function(threeFaceMesh){
-      console.log('init_webar(): done successfully');
-    }
+    neckBoneName: 'headx_0117'
   });
 }
 
@@ -104,11 +104,7 @@ function init_three() {
       _threeScene.add(_threeModel);
 
       // disable frustum culling, there are weird bugs with the animation:
-      _threeModel.traverse(function(threeNode){
-        if (threeNode.frustumCulled){
-          threeNode.frustumCulled = false;
-        }
-      });
+      WebARRocksFaceDepthThreeHelper.disable_frustumCulling(_threeModel);
 
       // animate the model:
       const animationClip = gltf.animations[0];
@@ -129,14 +125,20 @@ function onWindowResize() {
 }
 
 
-function animate() {
-  _threeControls.update();
-  
+function render(){
   if (_threeAnimationMixer !== null){
     _threeAnimationMixer.update(_threeClock.getDelta() * 1.0);
   }
 
   _threeRenderer.render( _threeScene, _threeCamera );
+}
+
+
+function animate() {
+  _threeControls.update();
+  
+  render();
+
   requestAnimationFrame( animate );
 }
 

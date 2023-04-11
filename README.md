@@ -63,6 +63,7 @@ Here are the main features of the library:
 Here are the demonstrations included in this repository:
 
 * Three.js avatar: [live demo](https://webar.rocks/demos/faceDepth/demos/threeAvatar/), [source code](/demos/threeAvatar/)
+* Ready Player Me avatar: [live demo](https://webar.rocks/demos/faceDepth/demos/threeReadyPlayerMeAvatar/), [source code](/demos/threeReadyPlayerMeAvatar/)
 
 
 ## Specifications
@@ -217,5 +218,6 @@ For more information, please read the [LICENSE](/LICENSE) file.
 
 * [WebAR.rocks website](https://webar.rocks)
 * [Webgl Academy: tutorials on WebGL and THREE.JS](http://www.webglacademy.com)
+* [Three.js official website](https://threejs.org/)
 * [WebAR.rocks on Linkedin](https://www.linkedin.com/company/webar-rocks)
 * [WebAR.rocks on Twitter](https://twitter.com/WebARRocks)
