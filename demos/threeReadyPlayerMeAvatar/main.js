@@ -16,8 +16,6 @@ let _threeAnimationMixer = null, _threeClock = null, _threeModel = null, _threeA
 function main(){
   init_three().then(init_webar).then(function(){
     bind_animation();
-    
-    render();
     WebARRocksFaceDepthThreeHelper.insert_face();
     set_avatarPose();
     
@@ -213,7 +211,6 @@ function load_animation(){
 function bind_animation(){
   if (_threeAnimations){
     _threeAnimationMixer = new THREE.AnimationMixer(_threeModel);
-    
     const animationClip = _threeAnimations[0];
     const animationAction = _threeAnimationMixer.clipAction( animationClip );
     animationAction.loop = THREE.LoopRepeat;
@@ -234,16 +231,13 @@ function render() {
   if (_threeAnimationMixer !== null){
     _threeAnimationMixer.update(_threeClock.getDelta() * 1.0);
   }
-
   _threeRenderer.render( _threeScene, _threeCamera );
 }
 
 
 function animate() {
   _threeControls.update();
-  
   render();
-
   requestAnimationFrame( animate );
 }
 

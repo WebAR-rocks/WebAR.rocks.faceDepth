@@ -410,8 +410,18 @@ const threeHelper = {
 
   insert_face(){
     if (_spec.threeAvatarModel){
+      threeHelper.precompute_matrices(_spec.threeAvatarModel);
       insert_face();
     }
+  },
+
+
+  precompute_matrices: function(threeModel){
+    threeModel.traverse(function(threeNode){
+      if (threeNode.updateMatrixWorld){
+        threeNode.updateMatrixWorld();
+      }
+    });
   },
 
 
