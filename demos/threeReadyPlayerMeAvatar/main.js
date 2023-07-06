@@ -46,7 +46,7 @@ function init_webar(){
     threeMeshesToHideIfDetected: ["Wolf3D_Teeth", "EyeLeft", "EyeRight", "Wolf3D_Hair", "Wolf3D_Glasses", "Wolf3D_Beard"],
 
     faceScale: 0.22,
-    faceOffset: [0, 1.75, 0.088],//[0, 137, 22], // +Y -> up, +Z -> forward
+    faceOffset: [0, 1.72, 0.088],//[0, 1.75, 0.088], // +Y -> up, +Z -> forward
     faceRx: -7 * Math.PI/180, // - -> look up
     
     neckBoneName: 'Neck'
