@@ -10,10 +10,8 @@ const _defaultSpec = {
   depthAlphaFallOffRange: [-1, -0.5], // first value: depth when fully transparent, second: fully opaque
 
   // neural network models:
-  //NNTrackPath: '../../../../../../neuralNets/raw/faceDepth/faceDepthTrack0_2022-08-14_tmp.json',
-  //NNDepthPath: '../../../../../../neuralNets/raw/faceDepth/faceDepth0_2022-08-21_5_1_tmp.json',
   NNTrackPath: NNPath + 'NN_FACEDEPTH_TRACK_2.json',
-  NNDepthPath: NNPath + 'NN_FACEDEPTH_DEPTH_7.json',
+  NNDepthPath: NNPath + 'NN_FACEDEPTH_DEPTH_10.json', // best: 10
 
   // face insertion:
   threeAvatarModel: null,
