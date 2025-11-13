@@ -206,10 +206,7 @@ If a compatibility error is triggered, please post an issue on this repository. 
 
 ## License
 
-This code repository is dual licensed. You have to choose between these 2 licenses:
-
-1. [GPLv3](GPLv3.txt) (free default option)
-2. Nominative commercial license: please contact-us for more information
+This code is released under MIT Software license.
 
 For more information, please read the [LICENSE](/LICENSE) file.
 

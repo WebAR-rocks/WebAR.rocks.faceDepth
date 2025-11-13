@@ -1,10 +1,27 @@
- /**
- * WebAR.rocks.faceDepth - https://github.com/WebAR-rocks/WebAR.rocks.faceDepth
- *
- * Copyright 2022 WebAR.rocks ( https://webar.rocks )
- *
+/**
+ * MIT License
  * 
+ * Copyright (c) 2025 WebAR.Rocks
+ * 
+ * Permission is hereby granted, free of charge, to any person obtaining a copy
+ * of this software and associated documentation files (the "Software"), to deal
+ * in the Software without restriction, including without limitation the rights
+ * to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+ * copies of the Software, and to permit persons to whom the Software is
+ * furnished to do so, subject to the following conditions:
+ * 
+ * The above copyright notice and this permission notice shall be included in all
+ * copies or substantial portions of the Software.
+ * 
+ * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+ * IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+ * FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+ * AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+ * LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+ * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+ * SOFTWARE.
 */
+
 
 var WEBARROCKSFACEDEPTH=(function(){window.WEBARROCKSFACEDEPTHGEN=function(){function vb(a){var c=null,d=null,e=null,k=0,p=this,q=null,n={Ka:[],ab:"none",Gb:!1,$a:null,grid:null};this.A=function(){this.De(q.Ka);e.ig({ab:q.ab,Gb:q.Gb,$a:q.$a})};this.jf=function(l){return c[l]};this.Rb=function(l){["s32","s34","s27"].forEach(function(r){C.M(r,[{type:"2f",name:"u20",value:l}])});c&&c.forEach(function(r){r.Rb(l)})};this.De=function(l){var r=null;k=l.length;var w=null!==q.grid&&a.grid.length&&!(1===a.grid[0]&&1===a.grid[1]),y=w?q.grid:[1,1];w&&this.Rb(y);
 c=l.map(function(x,A){x=Object.assign({},x,{index:A,parent:p,Ib:r,zf:A===k-1,Xa:w,Z:y});return r=A=0===A?Ob.instance(x):Pb.instance(x)});d=c[0];e=c[k-1];c.forEach(function(x,A){0!==A&&x.Qf()})};this.V=function(l){l.g(0);var r=l;c.forEach(function(w){r=w.V(r,!1)});return r};this.tb=function(){return d.hf()};this.yd=function(){return e.G()};this.Wa=function(){return e.lf()};this.vd=function(){return e.vd()};this.m=function(){c&&(c.forEach(function(l){l.m()}),e=d=c=null,k=0)};"undefined"!==typeof a&&
